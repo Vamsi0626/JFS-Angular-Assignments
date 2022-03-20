@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id ="Address" class = "springCoreAssignment1.Address" name = "Address1">
+        <constructor-arg value="Adapa Vari Street"/>
+        <constructor-arg value="Guntur"/>
+        <constructor-arg value="Andhrapradesh"/>
+        <constructor-arg value="522004"/>
+        <constructor-arg value="India"/>
+    </bean>
+    <bean id ="customer" class = "springCoreAssignment1.customer">
+        <constructor-arg type="int"  value="26"/>
+        <constructor-arg value="Vamsi"/>
+        <constructor-arg type="Long" value="9381358140"/>
+        <constructor-arg type="Address" ref="Address1"/>
+    </bean>
+</beans>
