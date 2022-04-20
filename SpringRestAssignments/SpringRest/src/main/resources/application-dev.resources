@@ -1,2 +1,0 @@
-spring.devtools.livereload.enabled=false
-spring.jpa.open-in-view=false
