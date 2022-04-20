@@ -1,0 +1,83 @@
+//1
+const num=10
+console.log(num);
+
+//3
+var Order = {
+    id: 66,
+    title: 'orders',
+    price: 6500,
+    printOrder() {
+        return (this.id + " " + this.title + " " + this.price);
+    },
+    getPrice() {
+        return (this.price);
+    }
+};
+var order1 = Object.assign(Order);
+console.log(order1.printOrder());
+console.log(order1.getPrice());
+order1.id = 67;
+order1.title = 'order2';
+order1.price = 6700;
+console.log(order1.printOrder());
+console.log(order1.getPrice());
+
+
+//4
+let names = ['Tom', 'Ivan', 'Jerry'];
+var Q4 = (names) => {
+    let res = names.map((n) => { let r = { name: n, length: n.length }; return (r); });
+    return res;
+};
+console.log(Q4(names));
+
+//5
+//1.
+function add(a, b = 10) {
+    return (a + b);
+}
+//2.
+console.log(add(10, 20));
+console.log(add(10));
+function userFriends(username, ...arg) {
+    console.log("Name: " + username);
+    console.log("userFriends: ");
+    for (var i in arg) {
+        console.log(arg[i]);
+    }
+}
+userFriends("Vamsi", "Gupta", "Anjani", "Bala");
+let arr = ["Praveen", "Mahesh", "Pavan", "Anirudh", "Ganesh"];
+userFriends("Praveen", ...arr);
+//3.
+function printCapitalNames(...names) {
+    console.log("Names With Capitals");
+    for (var i in names) {
+        console.log(names[i].toUpperCase());
+    }
+}
+printCapitalNames(...arr);
+
+
+//6
+function laptop(model, deskno, name, problem) {
+    console.log(`The  laptop is From :${model}, desk no:${deskno},name:${name},problem:${problem}`);
+}
+laptop("dell", "626", "Vamsi Polisetty", "Laptop was slow");
+
+//7
+//1
+var [e1, e2, e3, e4] = arr;
+console.log(e3);
+//2
+let organization = {
+    Name: "Capgemini",
+    adress: {
+        city: "Guntur",
+        state: "Andhra Pradesh",
+        pincode: 522004
+    }
+};
+let { adress: { pincode: p } } = organization;
+console.log(p);

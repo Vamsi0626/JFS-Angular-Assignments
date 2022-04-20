@@ -1,0 +1,106 @@
+//1
+class Fibonacci {
+    constructor() {
+        this.previousNo = Symbol();
+        this.currentNo = Symbol();
+        this.previousNo = 2;
+        this.currentNo = 6;
+    }
+    next() {
+        let nxt = Symbol();
+        nxt = this.previousNo + this.currentNo;
+        this.previousNo = this.currentNo;
+        this.currentNo = nxt;
+        return nxt;
+    }
+}
+let obj = new Fibonacci();
+console.log("Fibonacci series End");
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+console.log(obj.next());
+
+//2
+const listArmStrong = [1, 153, 260, 357, 436];
+let n = 0;
+function A2Q2() {
+    return { getNextArmstrong: function () { n += 1; return { value: listArmStrong[n], done: false }; } };
+}
+
+var n1 = A2Q2();
+console.log("Armstrong numbers are : ");
+console.log(n1.getNextArmstrong());
+console.log(n1.getNextArmstrong());
+console.log(n1.getNextArmstrong());
+console.log(n1.getNextArmstrong());
+console.log(n1.getNextArmstrong());
+
+//3
+function isArmstrong(number) {
+    let sum = 0;
+    let temp = number;
+    while (temp > 0) {
+        let digit = temp % 10;
+        sum += digit ** 3;
+        temp = Math.floor(temp / 10);
+    }
+    return (number == sum);
+}
+
+function* getNextArmstrong1() {
+    let i = 0;
+    while (true) {
+        if (isArmstrong(i)) {
+            yield i;
+        }
+        if (i > 1000) {
+            i = 0;
+            yield "number is too larger";
+        }
+        i++;
+    }
+}
+console.log("Armstrong numbers are : ");
+console.log("using Generator");
+var g = getNextArmstrong1();
+console.log(g.next().value);
+console.log(g.next().value);
+console.log(g.next().value);
+console.log(g.next().value);
+console.log(g.next().value);
+console.log(g.next().value);
+console.log(g.next().value); 
+console.log(g.next().value);
+console.log(g.next().value);
+console.log(g.next().value);
+
+
+//4
+var croom1 = new Map();
+var croom2 = new Map();
+
+
+croom1.set("user1", ["Hi", "I'm Vamsi"]);
+croom1.set("user2", ["Hi", "I'm Gupta"]);
+croom1.set("user3", ["Hi", "I'm Anjani"]);
+croom2.set("user4", ["Hi", "I'm Anirudh"]);
+croom2.set("user5", ["Hi", "I'm Ganesh"]);
+croom2.set("user6", ["Hi", "I'm Praveen"]);
+
+var printusers = (room, name) => {
+    console.log(`Users in room name  ${name} are : `);
+    for (let key of room.keys()) {
+        console.log(key);
+    }
+};
+var printmessages = (room, name) => {
+    console.log(`Messages in room name  ${name} are : `);
+    for (let value of room.values()) {
+        console.log(value);
+    }
+};
+printusers(croom1, "chatroom1");
+printusers(croom2, "chatroom2");
+printmessages(croom1, "chatroom1");
+printmessages(croom2, "chatroom2");
